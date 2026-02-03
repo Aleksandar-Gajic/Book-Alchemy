@@ -126,7 +126,6 @@ def rate_book(book_id):
 # -----------------------------
 @app.route("/suggest_book")
 def suggest_book():
-    # Ova ruta može da šalje podatke ChatGPT-u ili API-ju, trenutno samo placeholder
     books = Book.query.all()
     return render_template("suggest_book.html", books=books)
 
@@ -135,7 +134,7 @@ def suggest_book():
 # -----------------------------
 @app.route("/book/<int:book_id>")
 def book_detail(book_id):
-    book = Book.query.get_or_404(book_id)  # Get book by ID or return 404
+    book = Book.query.get_or_404(book_id)
     return render_template("book_detail.html", book=book)
 
 # -----------------------------
@@ -143,5 +142,5 @@ def book_detail(book_id):
 # -----------------------------
 if __name__ == "__main__":
     with app.app_context():
-        db.create_all()  # kreira tabele ako ne postoje
+        db.create_all()
     app.run(debug=True)
