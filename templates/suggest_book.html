@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Book Suggestion</title>
+</head>
+<body>
+    <h1>Enchanted Book Recommendation</h1>
+
+    <div class="suggestion-box">
+        <p>{{ suggestion }}</p>
+        <p><a href="/">Back to Library</a></p>
+    </div>
+</body>
+</html>

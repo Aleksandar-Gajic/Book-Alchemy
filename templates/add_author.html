@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Add Author</title>
+</head>
+<body>
+    <h1>Add Author</h1>
+
+    {% if success %}
+        <p style="color: green;">Author added successfully!</p>
+    {% endif %}
+
+    <form method="post">
+        <label>Name:</label><br>
+        <input type="text" name="name" required><br><br>
+
+        <label>Birth Date:</label><br>
+        <input type="date" name="birth_date"><br><br>
+
+        <label>Date of Death:</label><br>
+        <input type="date" name="date_of_death"><br><br>
+
+        <button type="submit">Add Author</button>
+    </form>
+
+    <p><a href="/">Back to Home</a></p>
+</body>
+</html>

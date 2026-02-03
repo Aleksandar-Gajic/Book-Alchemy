@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Link to global mystical CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <title>Enchanted Digital Library</title>
+</head>
+<body>
+    <h1>Enchanted Digital Library</h1>
+
+    <!-- Flash messages -->
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        {% for category, message in messages %}
+          <p class="flash-message">{{ message }}</p>
+        {% endfor %}
+      {% endif %}
+    {% endwith %}
+
+    <!-- Top navigation links -->
+    <div class="top-links">
+        <a href="/add_author">Add Author</a>
+        <a href="/add_book">Add Book</a>
+        <a href="/suggest_book">Suggest a Book</a>
+    </div>
+
+    <!-- Search and sort section -->
+    <div class="search-sort">
+        <form method="get" action="/">
+            <input type="text" name="q" placeholder="Search books or authors..." value="{{ search_query or '' }}">
+            <button type="submit">Search</button>
+        </form>
+        <p>
+            Sort by:
+            <a href="/?sort=title{% if search_query %}&q={{ search_query }}{% endif %}">Title</a> |
+            <a href="/?sort=author{% if search_query %}&q={{ search_query }}{% endif %}">Author</a>
+        </p>
+    </div>
+
+    <!-- Books container for flex layout -->
+    <div class="books-container">
+        {% if books %}
+            {% for book in books %}
+                <div class="book-card">
+                    <img src="https://covers.openlibrary.org/b/isbn/{{ book.isbn }}-M.jpg" alt="Cover">
+
+                    <p><strong>{{ book.title }}</strong></p>
+                    <p>
+                        {{ book.author.name }}
+                        <!-- Delete Author button -->
+                        <form method="post" action="/author/{{ book.author.id }}/delete" style="display:inline;">
+                            <button type="submit" onclick="return confirm('Delete this author and all their books?');">
+                                Delete Author
+                            </button>
+                        </form>
+                    </p>
+
+                    <!-- Delete Book button -->
+                    <form method="post" action="/book/{{ book.id }}/delete">
+                        <button type="submit" onclick="return confirm('Delete this book?');">Delete Book</button>
+                    </form>
+
+                    <!-- Rating display and update -->
+                    <p>Rating: {{ book.rating or 'Not rated' }}</p>
+                    <form method="post" action="/book/{{ book.id }}/rate" class="rating-form">
+                        <input type="number" name="rating" min="1" max="10" placeholder="1-10">
+                        <button type="submit">Update Rating</button>
+                    </form>
+
+                    <!-- Link to book details page -->
+                    <p><a href="/book/{{ book.id }}">View Details</a></p>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No books match your search criteria.</p>
+        {% endif %}
+    </div> <!-- End books-container -->
+</body>
+</html>

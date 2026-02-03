@@ -1,0 +1,240 @@
+/* ========================================
+   Mystical Forest Theme for Digital Library
+   Author: Your Name
+   Notes: Applied globally to all templates
+======================================== */
+
+/* ---------- Body and general layout ---------- */
+body {
+    font-family: 'Georgia', serif;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0b3d2e, #2e1a3d, #1e3d4d);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    color: #e0e0ff;
+}
+
+/* ---------- Headings ---------- */
+h1 {
+    text-align: center;
+    font-size: 3em;
+    color: #d1c4ff;
+    text-shadow: 2px 2px 8px #000;
+    margin-bottom: 30px;
+}
+
+/* ---------- Links ---------- */
+a {
+    color: #7d5fff;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+a:hover {
+    color: #ffb3ff;
+    text-shadow: 0 0 8px #fff;
+}
+
+/* ---------- Flash messages ---------- */
+.flash-success, .flash-message {
+    text-align: center;
+    color: #a3ffb1;
+    font-weight: bold;
+    text-shadow: 0 0 5px #000;
+    margin-bottom: 20px;
+}
+
+/* ---------- Forms (Add Author / Add Book / Rating) ---------- */
+form {
+    background: rgba(0,0,0,0.4);
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 400px;
+    margin: 20px auto;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+form:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.8);
+}
+
+label {
+    font-weight: bold;
+    color: #a3ffb1;
+}
+
+input[type="text"], input[type="date"], input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    margin: 5px 0 15px 0;
+    border-radius: 8px;
+    border: none;
+    box-shadow: 0 0 10px #3d2e5d inset;
+    background: rgba(0,0,0,0.2);
+    color: #fff;
+    transition: 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="number"]:focus {
+    box-shadow: 0 0 10px #7d5fff inset;
+    outline: none;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #7d5fff;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #ff77ff;
+    box-shadow: 0 0 10px #fff;
+    color: #000;
+}
+
+/* ---------- Top links (Add Author, Add Book, Suggest Book) ---------- */
+.top-links {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.top-links a {
+    margin: 0 10px;
+    color: #7d5fff;
+    transition: 0.3s;
+}
+
+.top-links a:hover {
+    color: #ffb3ff;
+    text-shadow: 0 0 8px #fff;
+}
+
+/* ---------- Search and Sort ---------- */
+.search-sort {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.search-sort input[type="text"] {
+    width: 200px;
+    padding: 5px;
+    border-radius: 6px;
+    border: none;
+    box-shadow: 0 0 5px #3d2e5d inset;
+    background: rgba(0,0,0,0.2);
+    color: #fff;
+    transition: 0.3s;
+}
+
+.search-sort input[type="text"]:focus {
+    box-shadow: 0 0 8px #7d5fff inset;
+    outline: none;
+}
+
+.search-sort button {
+    padding: 5px 10px;
+    border-radius: 6px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.search-sort button:hover {
+    background: #ff77ff;
+    color: #000;
+}
+
+/* ---------- Books grid ---------- */
+.books-container {
+    display: flex;
+    flex-wrap: wrap;          /* wrap books into new rows */
+    justify-content: center;  /* center horizontally */
+    gap: 20px;                /* spacing between cards */
+    padding: 20px 0;
+}
+
+/* ---------- Book cards ---------- */
+.book-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: rgba(0,0,0,0.4);
+    border-radius: 12px;
+    box-shadow: 0 0 10px #ff77ff;
+    padding: 15px;
+    width: 200px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.book-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 20px #7dff9e;
+}
+
+.book-card img {
+    width: 100%;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    box-shadow: 0 0 5px #ff77ff;
+}
+
+.book-card img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px #7dff9e;
+}
+
+.book-card p {
+    margin: 5px 0;
+    text-align: center;
+}
+
+/* ---------- Forms inside book card ---------- */
+.book-card form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 3px 0;
+    gap: 5px;
+}
+
+.rating-form input {
+    width: 50px;
+    margin-bottom: 3px;
+}
+
+.book-card button {
+    padding: 5px 10px;
+    border-radius: 6px;
+    border: none;
+    background: #7d5fff;
+    color: #fff;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.book-card button:hover {
+    background: #ff77ff;
+    box-shadow: 0 0 10px #fff;
+    color: #000;
+}
+
+/* Center the book details container */
+.book-details-container {
+    display: flex;
+    justify-content: center; /* horizontal centering */
+    margin-top: 20px;
+}
