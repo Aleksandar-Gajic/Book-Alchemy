@@ -1,0 +1,14 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Virtual environment
+.venv/
+venv/
+
+# SQLite database
+library.sqlite
+
+# Flask secret key file
+.env

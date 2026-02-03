@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, flash
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime, date
+from dotenv import load_dotenv
 import os
 from data_models import db, Author, Book
 
@@ -8,7 +9,8 @@ from data_models import db, Author, Book
 # Flask app setup
 # -----------------------------
 app = Flask(__name__)
-app.secret_key = "moja_tajna_123456"  # 🔑 Secret key for flash
+load_dotenv()
+app.secret_key = os.getenv("SECRET_KEY")
 
 basedir = os.path.abspath(os.path.dirname(__file__))
 app.config['SQLALCHEMY_DATABASE_URI'] = f"sqlite:///{os.path.join(basedir, 'data/library.sqlite')}"
