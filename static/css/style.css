@@ -165,7 +165,7 @@ button:hover {
     padding: 20px 0;
 }
 
-/* ---------- Book cards ---------- */
+/* --------- Book cards --------- */
 .book-card {
     display: flex;
     flex-direction: column;
